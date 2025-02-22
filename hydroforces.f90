@@ -706,7 +706,7 @@
          ENDIF
       ENDDO
       CALL CPU_TIME(t1)
-      CALL TA_SEVEN_FIVE(4*iN, a, b, c, d, e, f, g, h, o, p, q, r, s, rhs, x)
+      CALL THIRTEENDMA(4*iN, a, b, c, d, e, f, g, h, o, p, q, r, s, rhs, x)
       CALL CPU_TIME(t2)
       WRITE(*,*) 1d3*(t1-t0), 1d3*(t2-t1), 1d3*(t2-t0)
 
@@ -1167,7 +1167,7 @@
 
       END SUBROUTINE
 ! ======================================================================
-      SUBROUTINE TA_SEVEN_FIVE(n, a, b, c, d, e, f, g, h, o, p, q, r, s, rhs, x)
+      SUBROUTINE THIRTEENDMA(n, a, b, c, d, e, f, g, h, o, p, q, r, s, rhs, x)
       DOUBLE PRECISION, DIMENSION(n) :: a, b, c, d, e, f, g, h, o, p, q, r, s, rhs, x
       INTEGER :: i,n
 
@@ -1375,4 +1375,4 @@
          x(i) = (rhs(i) - o(i) * x(i+1) - p(i) * x(i+2) - q(i) * x(i+3) - r(i) * x(i+4) - s(i) * x(i+5)) / h(i)
       ENDDO
 
-      END SUBROUTINE TA_SEVEN_FIVE
+      END SUBROUTINE THIRTEENDMA
